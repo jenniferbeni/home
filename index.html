@@ -16,6 +16,12 @@ param.website = "dreamstudio"
 <link type="text/css" rel="stylesheet" href="https://model.earth/localsite/css/base.css" id="/localsite/css/base.css" />
 <script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?showheader=true"></script>
 
+<style>
+#heroHeader {
+  background-color: #ccc;
+}
+</style>
+
 <script>
 loadMarkdown("README.md", "readmeDiv", "_parent");
 </script>
@@ -23,7 +29,20 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 </head>
 
 <body>
+<div id="heroHeader">
+  <div class="content contentpadding large-list">
+    <h3>Our data science team turns your dreams into reality.</h3><br>
+
+    Describe your goals <!--integrate with Obsidian editor --><br>
+
+    [A textbox containing an editable list of goals (storyboard) with prompts for video/visualization generation.]
+  </div>
+</div>
+
 <div class="content contentpadding large-list">
+
+  
+
   <div id="readmeDiv"></div>
 </div>
 </body>

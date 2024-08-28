@@ -1,8 +1,5 @@
-### Our data science team turns your dreams into reality.
 
-Describe your goals <!--integrate with Obsidian editor -->
-
-[A textbox containing an editable list of goals (storyboard) with prompts for video/visualization generation.]
+# Set your goals high
 
 We'll help make your goals reality! Our tools include:
 
