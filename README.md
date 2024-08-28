@@ -6,9 +6,9 @@ Describe your goals <!--integrate with Obsidian editor -->
 
 We'll help make your goals reality! Our tools include:
 
-RealitySteam (visualization)
-OpenFootprint (data)
-MemberSense (teams)
+RealitySteam (visualization)  
+OpenFootprint (data)  
+MemberSense (teams)  
 ModelEarth (mapping)
 
 [Each of the above filmstrip items would send content into the screen-wide hero player.]
