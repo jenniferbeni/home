@@ -13,8 +13,6 @@ ModelEarth (mapping)
 
 [Each of the above filmstrip items would send content into the screen-wide hero player.]
 
-Time to make some sandwiches for my paint crew!
-
 Nearterm: Integration of home page with visitor's GitHub account for saving goals and resulting content - 
 parallel storage of data visualization parameters with video generation.
 
