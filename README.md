@@ -3,7 +3,7 @@
 
 We'll help make your goals reality! Our tools include:
 
-RealitySteam (visualization)  
+RealityStream (visualization)  
 OpenFootprint (data)  
 MemberSense (teams)  
 ModelEarth (mapping)
