@@ -1,7 +1,11 @@
-<!--
-	We'll help make your goals reality! 
-	Set your goals high
--->
+# Our focus
+
+Interactive Visualizations
+Machine Learning for Goal Setting
+Data Analytics for Organizations
+Generative AI Images and Video
+
+Learn about our Pipelines for Open Web UI locations and teams
 
 # Our tools
 
