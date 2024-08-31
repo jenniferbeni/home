@@ -28,10 +28,10 @@ Stable Artisan, OpenWebUI, Earthscape NextJS.
 
 
 
-# Connect Obsidian with Github repo
+## Connect Obsidian with Github repo
 Please refer to this [website](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) for the guilded steps.
 
-# Useful Obsidian Plugin
+## Useful Obsidian Plugin
 1. GIT: obsidian://show-plugin?id=obsidian-git
 2. Enhancing Export for exporting different file formats: obsidian://show-plugin?id=obsidian-enhancing-export
 3. Code emmitter for running code within code blocks: obsidian://show-plugin?id=code-emitter
