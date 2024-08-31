@@ -1,10 +1,10 @@
 # What we do
 
-Interactive Visualizations
-Machine Learning for Organizations
-Data Analytics for Team Goals
-Generative AI Images and Video
-Pipelines for Open Web UI
+Interactive Visualizations  
+Machine Learning for Organizations  
+Data Analytics for Team Goals  
+Generative AI Images and Video  
+Pipelines for Open Web UI  
 [To be determined - by you!]
 
 
