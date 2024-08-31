@@ -29,7 +29,9 @@ Stable Artisan, OpenWebUI, Earthscape NextJS.
 
 
 ## Connect Obsidian with Github repo
-Please refer to this [website](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) for the guilded steps.
+Please refer to this [website](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) for the guilded steps. 
+
+You can set up automatic pulls from the repository and enable autosave by navigating to Settings -> Community Plugins -> Git. You have the option to let it auto-save, or you can manually update by Ctrl + P to open the command palette and typing 'backup'. This will automatically commit and push your changes to the repository.
 
 ## Useful Obsidian Plugin
 1. GIT: obsidian://show-plugin?id=obsidian-git
