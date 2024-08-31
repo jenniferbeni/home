@@ -12,10 +12,10 @@ Learn about our Pipelines for Open Web UI locations and teams
 
 # Our tools
 
-RealityStream (visualization)  
-OpenFootprint (data)  
-MemberSense (teams)  
-ModelEarth (mapping)
+RealityStream (ML Visualization)  
+ModelEarth (Location Analysis)  
+OpenFootprint (Open Data Panels)   
+MemberSense (Team Guided AI)  
 
 [Each of the above filmstrip items will send content into the screen-wide hero player.]
 
