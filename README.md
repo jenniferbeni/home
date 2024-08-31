@@ -1,9 +1,12 @@
-# Our focus
+# What we do
 
 Interactive Visualizations
-Machine Learning for Goal Setting
-Data Analytics for Organizations
+Machine Learning for Organizations
+Data Analytics for Team Goals
 Generative AI Images and Video
+Pipelines for Open Web UI
+[To be determined - by you!]
+
 
 Learn about our Pipelines for Open Web UI locations and teams
 
