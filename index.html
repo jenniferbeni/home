@@ -21,6 +21,21 @@ param.website = "dreamstudio"
   background-color: #ccc;
   min-height: 230px;
 }
+.heroLowerRight {
+    position: absolute;
+    bottom:40px; right:40px;
+    background-color: rgba(11, 11, 11, 0.5);
+    border-radius: 40px;
+    max-width: 600px;
+    padding: 30px 50px 25px 50px;
+    color: #fff;
+    line-height: 1.6em;
+} 
+.heroLowerRight a:link, .heroLowerRight a:visited {
+    color: teal;
+    text-decoration: none;
+}
+
 </style>
 
 <script>
@@ -31,7 +46,17 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 
 <body>
 
-<img src="img/AnEnvironmentalImage.jpg" style="width:100%">
+
+
+<div style="position:relative">
+  <div class="heroLowerRight hideMobile">
+    <p style="margin-bottom:7px"><b style="font-size: 1.2em; ">It Takes a Team to Dream</b></p>
+    “GenAI is accelerating the democratization of advanced technologies. The integration of AI, analytics and automation into software products is enabling the rise of a modern, outcome-driven IT stack, where the output of largely automated workflows is not simply facts and figures but inferences and recommendations.”<br>
+    <p style="margin-top:5px;margin-bottom:0px"><a href="https://www.weforum.org/agenda/2024/08/how-ai-brings-corporate-might-to-small-teams-reshaping-business-for-all/">World Economic Forum</a></p>
+  </div>
+
+  <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
+</div>
 
 <div id="heroHeader">
 
