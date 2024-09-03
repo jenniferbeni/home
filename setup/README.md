@@ -2,7 +2,7 @@
 
 ## Cursor with Claude Sonnet
 
-Experiment with Claude for chart dashboard using our upcoming [OpenFootprint trade data](/OpenFootprint/)
+Experiment with Claude for chart dashboard using our [UN Timeline Data](/data-commons/docs/data/) and upcoming [OpenFootprint trade data](/OpenFootprint/).
 
 [10 examples of Cursor with Claude](https://x.com/dr_cintas/status/1830977637201936780)
 &ndash; [Dashboard for Propdock with Vercel NextJS, Prisma and Tailwind](https://x.com/CodeHagen/status/1829857742409916716)
