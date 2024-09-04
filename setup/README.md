@@ -1,4 +1,4 @@
-# Home Repo Setup
+# Home Setup
 
 ## Connect Obsidian with your Github repo
 [The Easiest Way to Connect Your Obsidian Vault](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) with guilded steps. 
