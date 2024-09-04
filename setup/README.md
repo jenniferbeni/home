@@ -1,13 +1,6 @@
 # Home Repo Setup
 
-## Cursor with Claude Sonnet
-
-Experiment with Claude for chart dashboard using our [UN Timeline Data](/data-commons/docs/data/) and upcoming [OpenFootprint trade data](/OpenFootprint/).
-
-[10 examples of Cursor with Claude](https://x.com/dr_cintas/status/1830977637201936780)
-&ndash; [Dashboard for Propdock with Vercel NextJS, Prisma and Tailwind](https://x.com/CodeHagen/status/1829857742409916716)
-
-## Connect Obsidian with Github repo
+## Connect Obsidian with your Github repo
 [The Easiest Way to Connect Your Obsidian Vault](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) with guilded steps. 
 
 You can set up automatic pulls from the repository and enable autosave by navigating to Settings -> Community Plugins -> Git. You have the option to let it auto-save, or you can manually update by Ctrl + P to open the command palette and typing 'backup'. This will automatically commit and push your changes to the repository.
