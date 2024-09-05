@@ -13,8 +13,10 @@ param.showsearch = "true";
 param.website = "dreamstudio"
 </script>
 
-<link type="text/css" rel="stylesheet" href="https://model.earth/localsite/css/base.css" id="/localsite/css/base.css" />
-<script type="text/javascript" src="https://model.earth/localsite/js/localsite.js?showheader=true"></script>
+<link type="text/css" rel="stylesheet" href="/localsite/css/base.css" id="/localsite/css/base.css" />
+<script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
+
+<script src="js/locationSearch.js"></script>
 
 <style>
 #heroHeader {
@@ -47,76 +49,82 @@ param.website = "dreamstudio"
   text-decoration: none;
 }
 
+.autocomplete-container {
+    align-items: center;
+    position: relative;
+    background: var(--gm-3-ref-primary-primary-100);
+    border-radius: 28px;
+    border: 1px solid #444;
+    display: flex;
+    flex-shrink: 0;
+    gap: 4px;
+    height: fit-content;
+    margin: 1px;
+    padding: 0px;
+    width: 100%;
+}
+.autocomplete-container .autocomplete-input {
+    align-items: center;
+    align-self: stretch;
+    background: transparent;
+    border: none;
+    color: var(--gm-3-ref-neutral-neutral-40);
+    display: flex;
+    flex: 1 0 0;
+    font-family: var(--font-family-sans-serif);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    gap: 10px;
+    height: 48px;
+    line-height: 24px;
+    padding: 0px 8px 0px 24px;
+    box-sizing: border-box; 
+}
+.autocomplete-container #loading {
+    margin-left: 24px;
+    font-size: 14px;
+    color: #0f5b9e;
+}
+.autocomplete-container #autocomplete-results {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+    /* border: 1px solid #ccc; /* Add a border to make the dropdown visually distinct */
+    
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%; /* Align the dropdown directly below the input field */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+}
 
-.search-section .search-bar {
-  align-items: center;
-  background: var(--gm-3-ref-primary-primary-100);
-  border-radius: 28px;
-  border: 1px solid #444;
-  display: flex;
-  flex-shrink: 0;
-  gap: 4px;
-  height: fit-content;
-  margin: 1px;
-  padding: 0px;
-  width: 100%;
+.autocomplete-container #autocomplete-results li {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: white;
+    border-bottom: 1px solid #eee; /* Add a separator between items */
 }
-.search-section .search-bar .search-bar-content {
-  align-items: center;
-  align-self: stretch;
-  display: flex;
-  flex-shrink: 0;
-  gap: 4px;
-  height: fit-content;
-  padding: 4px 8px 4px 24px;
-  width: 100%;
+
+.autocomplete-container #autocomplete-results li:hover {
+    background-color: #f0f0f0;
 }
-.input-group {
-  position: relative;
-  flex-wrap: wrap;
-}
-.input-group:not(.has-validation)>.form-control:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.search-section .search-bar .search-bar-content .search-input-text {
-  align-items: center;
-  align-self: stretch;
-  background: transparent;
-  border: none;
-  color: var(--gm-3-ref-neutral-neutral-40);
-  display: flex;
-  flex: 1 0 0;
-  font-family: var(--font-family-sans-serif);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  gap: 10px;
-  height: 48px;
-  line-height: 24px;
-  padding: 0px;
-}
-.form-control::placeholder {
-  color: #6c757d;
-  opacity: 1;
+
+/* Button styling */
+.autocomplete-container #autocomplete-button {
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 42px;
+    width: 42px;
+    background: url(img/search-button-icon.svg) no-repeat center;
+    background-size: contain;
 }
 input:focus{
   outline: none;
-}
-input::-webkit-input-placeholder {
-  text-overflow: inherit;
-  overflow-wrap: normal;
-  line-height: initial !important;
-  -webkit-user-modify: read-only !important;
-  white-space: pre;
-  overflow: hidden;
-}
-.search-section .search-bar .search-bar-content #rich-search-button {
-  cursor: pointer;
-  flex-shrink: 0;
-  height: 42px;
-  width: 42px;
-  background: url(img/search-button-icon.svg);
 }
 </style>
 
@@ -142,17 +150,28 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
   <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
 </div>
 
-<div id="heroHeader" class="localonly" style="display:none">
+<div id="heroHeader">
 
   <div class="content contentpadding large-list search-section">
 
-    <div class="search-bar"><div class="search-bar-content input-group"><input id="query-search-input" placeholder="Where do you want to go today?" autocomplete="off" type="text" class="pac-target-input search-input-text form-control" aria-invalid="false" value=""><div id="rich-search-button"></div></div></div>
+    <h3>Our data science team turns dreams into reality.</h3>
 
-    <h3>Our data science team turns dreams into reality.</h3><br>
+    <div class="autocomplete-container">
+      <input type="text" id="autocomplete-input" placeholder="Where do you want to go today?" class="autocomplete-input" autocomplete="off"/>
+      <div id="loading" style="display: none;">Loading...</div>
+      <div id="autocomplete-button"></div>
+      <ul id="autocomplete-results" class="autocomplete-results"></ul>
+    </div>
 
+    <br>
+    <div id="requests"></div>
+    
+
+    <!--
     <b>Everything is possible, set your goals high</b><br>
-
     [Editable prompts for 21 UN Goal timeline scenes with matching video.]
+    -->
+
   </div>
 </div>
 
