@@ -188,7 +188,7 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
   <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
 </div>
 
-<div id="heroHeader" class="localonlyX" style="displayX:none">
+<div id="heroHeader" style="display:none">
 
   <div class="content contentpadding large-list search-section">
 
@@ -267,5 +267,12 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
       Open Web UI Ollama</div>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if (window.location.hostname !== 'dreamstudio.com') {
+        document.getElementById('heroHeader').style.display = 'block';
+    }
+});
+</script>
 </body>
 </html>
