@@ -223,9 +223,6 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     margin: 0;
     display: flex;
 }
-.half-div-parent link {
-  width: 50%;
-}
 .half-div {
     width: 50%;
     height: 200px;
@@ -236,6 +233,14 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     font-weight: bold;
     color: white;
     position: relative;
+}
+@media (max-width: 800px) {
+  .half-div-parent {
+    display: initial;
+  }
+  .half-div {
+    width: 100%;
+  }
 }
 .half-div a {
     position: absolute;
