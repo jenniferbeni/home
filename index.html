@@ -271,6 +271,13 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.hostname !== 'dreamstudio.com') {
         document.getElementById('heroHeader').style.display = 'block';
+    } else {
+      
+    }
+    if (location.host.indexOf('localhost') >= 0 && window.location.hostname !== 'dreamstudio.com') {
+      waitForElm('.goalsSub').then((elm) => {
+        toggleDiv('.goalsSub');
+      });
     }
 });
 </script>
