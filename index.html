@@ -29,7 +29,7 @@ param.website = "dreamstudio"
   left: 100px;
 }
 .heroTopText {
-  font-family:Roboto, Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-family: Roboto, Inter, -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
   font-size:55px;
   color:#fff;
   font-weight: bold;
@@ -61,11 +61,16 @@ param.website = "dreamstudio"
   color: lightseagreen;
   text-decoration: none;
 }
-@media (max-width: 1580px) {
+@media (max-width: 1250px) {
   .bodyLeftMargin .heroLowerText, .bodyRightMargin .heroLowerText {
     border-radius: 0px;
     bottom:0px;left:0px;right:0px;
     max-width:100%;
+  }
+}
+@media (max-width: 1100px) {
+  .bodyLeftMargin .heroLowerText, .bodyRightMargin .heroLowerText {
+    display: none;
   }
 }
 @media (max-width: 1000px) {
@@ -172,16 +177,18 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 
   </div>
   <div class="heroLowerText hideMobile">
-    <p style="margin-bottom:7px"><b style="font-size: 1.4em;">Your potential just got exponential</b></p>
-    <p style="font-size: 1.1em;">
-    “GenAI is accelerating the democratization of advanced technologies. The integration of AI, analytics and automation into software products is enabling the rise of a modern, outcome-driven IT stack, where the output of largely automated workflows is not simply facts and figures but inferences and recommendations.”<br></p>
-    <p style="margin-top:5px;margin-bottom:0px"><a href="https://www.weforum.org/agenda/2024/08/how-ai-brings-corporate-might-to-small-teams-reshaping-business-for-all/">World Economic Forum</a></p>
+    <div class="content" style="padding:0px; margin:0px">
+      <p style="margin-bottom:7px"><b style="font-size: 1.4em;">Your potential just got exponential</b></p>
+      <p style="font-size: 1.1em;">
+      “GenAI is accelerating the democratization of advanced technologies. The integration of AI, analytics and automation into software products is enabling the rise of a modern, outcome-driven IT stack, where the output of largely automated workflows is not simply facts and figures but inferences and recommendations.”<br></p>
+      <p style="margin-top:5px;margin-bottom:0px"><a href="https://www.weforum.org/agenda/2024/08/how-ai-brings-corporate-might-to-small-teams-reshaping-business-for-all/">World Economic Forum</a></p>
+    </div>
   </div>
 
   <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
 </div>
 
-<div id="heroHeader" class="localonly" style="display:none">
+<div id="heroHeader" class="localonlyX" style="displayX:none">
 
   <div class="content contentpadding large-list search-section">
 
