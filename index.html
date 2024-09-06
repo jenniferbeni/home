@@ -9,12 +9,12 @@
 
 <script>
 if(typeof param=='undefined'){ var param={}; }
-param.showsearch = "true";
+//param.showsearch = "true";
 param.website = "dreamstudio"
 </script>
 
 <link type="text/css" rel="stylesheet" href="/localsite/css/base.css" id="/localsite/css/base.css" />
-<script type="text/javascript" src="/localsite/js/localsite.js?showheader=true"></script>
+<script type="text/javascript" src="/localsite/js/localsite.js?showheader=true&showsearch=false"></script>
 
 <script src="js/locationSearch.js"></script>
 
@@ -34,7 +34,15 @@ param.website = "dreamstudio"
   color:#fff;
   font-weight: bold;
 }
-.heroLowerRight {
+@media (max-width: 1000px) {
+  .heroTop {
+    top: 40px;
+  }
+  .heroTopText {
+    font-size:42px;
+  }
+}
+.heroLowerText {
   position: absolute;
   bottom:40px; right:40px;
   background-color: rgba(11, 11, 11, 0.5);
@@ -44,9 +52,23 @@ param.website = "dreamstudio"
   color: #fff;
   line-height: 1.6em;
 } 
-.heroLowerRight a:link, .heroLowerRight a:visited {
+.heroLowerText a:link, .heroLowerText a:visited {
   color: lightseagreen;
   text-decoration: none;
+}
+@media (max-width: 1580px) {
+  .bodyLeftMargin .heroLowerText, .bodyRightMargin .heroLowerText {
+    border-radius: 0px;
+    bottom:0px;left:0px;right:0px;
+    max-width:100%;
+  }
+}
+@media (max-width: 1000px) {
+  .heroLowerText {
+    border-radius: 0px;
+    bottom:0px;left:0px;right:0px;
+    max-width:100%;
+  }
 }
 
 .autocomplete-container {
@@ -136,11 +158,15 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 
 <body>
 
-<div style="position:relative">
+<div style="position:relative;line-height:0px;">
   <div class="heroTop">
     <h1 class="heroTopText">Visualize your goals</h1>
+
+     <a href="https://dreamstudio.com/about" class="btn btn-success">Launch DreamStudio.ai</a>
+     <a href="https://stability.ai/stable-assistant" class="btn" style="background-color: rgb(152, 139, 252);">Try Stable Assistant</a>
+
   </div>
-  <div class="heroLowerRight hideMobile">
+  <div class="heroLowerText hideMobile">
     <p style="margin-bottom:7px"><b style="font-size: 1.4em;">Your potential just got exponential</b></p>
     <p style="font-size: 1.1em;">
     “GenAI is accelerating the democratization of advanced technologies. The integration of AI, analytics and automation into software products is enabling the rise of a modern, outcome-driven IT stack, where the output of largely automated workflows is not simply facts and figures but inferences and recommendations.”<br></p>
@@ -150,7 +176,7 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
   <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
 </div>
 
-<div id="heroHeader">
+<div id="heroHeader" class="localonly" style="display:none">
 
   <div class="content contentpadding large-list search-section">
 
@@ -173,13 +199,11 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     -->
 
   </div>
+
 </div>
 
-<div class="content contentpadding large-list" class="localonly" style="display:none">
+<div class="content contentpadding large-list" >
   <div id="readmeDiv"></div>
-  <!--
-    storyblok.com
-  -->
 </div>
 </body>
 </html>
