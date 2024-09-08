@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function renderResults() {
+  function renderResults1() {
     resultsContainer.innerHTML = '';
     items.forEach((item) => {
       const li = document.createElement('li');
@@ -52,6 +52,44 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+function renderResults() {
+  resultsContainer.innerHTML = '';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item.title;
+    li.className = 'autocomplete-item';
+    li.addEventListener('click', async () => {
+      input.value = item.title;
+      globalAddress = item.address;
+      
+      console.log('Selected item', item);
+
+      // Use OpenStreetMap (Nominatim) to get lat/lon for the selected address
+      try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(item.title)}&format=json&limit=1`);
+        const data = await response.json();
+        if (data.length > 0) {
+          const location = data[0];
+          console.log(`Latitude: ${location.lat}, Longitude: ${location.lon}`);
+          
+          // Update the requestsDiv with latitude and longitude from Nominatim
+          requestsDiv.innerHTML = `Address: ${globalAddress}<br>Latitude: ${location.lat}, Longitude: ${location.lon}`;
+        } else {
+          console.log('No lat/lon found for this address');
+        }
+      } catch (error) {
+        console.error('Error fetching lat/lon:', error);
+      }
+
+      resultsContainer.innerHTML = '';
+    });
+    resultsContainer.appendChild(li);
+  });
+}
+
+
+
+
   input.addEventListener('input', function () {
     const value = input.value;
     fetchLocations(value);
@@ -69,4 +107,3 @@ function updateGlobalAddress() {
   globalAddress = inputField.value;
   console.log("Global Address Updated: " + globalAddress);
 }
-
