@@ -14,12 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       const response = await fetch(`https://autocomplete.search.hereapi.com/v1/autocomplete?apiKey=14B6Yr62CTa_mKKoYViJQClxjjA32S6pL4Ir2ehCMcY&q=${inputValue}&maxresults=5`);
       const data = await response.json();
-      console.log(data.items)
+      console.log('data.items line 17', data.items)
       items = data.items.map(item => ({
         id: item.id,
         title: item.title,
-        address: item.address.label,
-        zip: item.address.postalcode
+        address: {
+          label: item.address.label,
+          city: item.address.city,
+          countryName: item.address.countryName,
+          postalCode: item.address.postalCode,
+          state: item.address.state,
+          stateCode: item.address.stateCode
+        },
+        zip: item.address.postalCode || 'No ZIP Code'
       }));
       loading.style.display = 'none';
       renderResults();
@@ -31,28 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function renderResults1() {
-    resultsContainer.innerHTML = '';
-    items.forEach((item) => {
-      const li = document.createElement('li');
-      li.textContent = item.title;
-      li.className = 'autocomplete-item';
-      li.addEventListener('click', () => {
-        input.value = item.title;
-        globalAddress = item.address;
-        // zip = item.zip
-        // zip = item.address.postalcode; // For button click
-        //alert(zip)
-        console.log('Selected item', item);
+ 
 
-        requestsDiv.innerHTML = globalAddress;
-        resultsContainer.innerHTML = '';
-      });
-      resultsContainer.appendChild(li);
-    });
-  }
-
-function renderResults() {
+function renderResults1() {
   resultsContainer.innerHTML = '';
   items.forEach((item) => {
     const li = document.createElement('li');
@@ -61,8 +49,12 @@ function renderResults() {
     li.addEventListener('click', async () => {
       input.value = item.title;
       globalAddress = item.address;
+      zip = item.zip || "";  // added zip code
       
       console.log('Selected item', item);
+
+
+
 
       // Use OpenStreetMap (Nominatim) to get lat/lon for the selected address
       try {
@@ -72,8 +64,21 @@ function renderResults() {
           const location = data[0];
           console.log(`Latitude: ${location.lat}, Longitude: ${location.lon}`);
           
+
+          requestsDiv.innerHTML = `
+          <b>City:</b> ${item.address.city || 'N/A'}<br>
+          <b>Country:</b> ${item.address.countryName || 'N/A'}<br>
+          <b>Postal Code:</b> ${item.address.postalCode || 'N/A'}<br>
+          <b>State:</b> ${item.address.state || 'N/A'}<br>
+          <b>Formatted Address:</b> ${item.address.label || 'N/A'}<br>
+          <b>Latitude:</b> ${location.lat}<br>
+          <b>Longitude:</b> ${location.lon}
+        `;
+  
+         // requestsDiv.innerHTML = `Address: ${globalAddress}<br>Latitude: ${location.lat}, Longitude: ${location.lon}<br>ZIP: ${zip}`; 
+         
           // Update the requestsDiv with latitude and longitude from Nominatim
-          requestsDiv.innerHTML = `Address: ${globalAddress}<br>Latitude: ${location.lat}, Longitude: ${location.lon}`;
+         // requestsDiv.innerHTML = `Address: ${globalAddress}<br>Latitude: ${location.lat}, Longitude: ${location.lon}`;
         } else {
           console.log('No lat/lon found for this address');
         }
@@ -84,6 +89,73 @@ function renderResults() {
       resultsContainer.innerHTML = '';
     });
     resultsContainer.appendChild(li);
+  });
+}
+
+function renderResults() {
+  resultsContainer.innerHTML = '';
+  items.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item.title;
+    li.className = 'autocomplete-item';
+
+    li.addEventListener('click', async () => {
+      input.value = item.title;
+      globalAddress = item.address;
+      zip = item.zip || "";  // Capture the zip code
+
+      console.log('Selected item', item);
+
+      // Try fetching lat/lon using a simplified address query
+      const searchQuery = `${item.address.city}, ${item.address.state}, ${item.address.postalCode}`; // Simplified query
+      console.log(`Searching lat/lon for: ${searchQuery}`);
+      
+      try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(searchQuery)}&format=json&limit=1`);
+        const data = await response.json();
+        if (data.length > 0) {
+          const location = data[0];
+          console.log(`Latitude: ${location.lat}, Longitude: ${location.lon}`);
+
+          // Display address details with lat/lon
+          requestsDiv.innerHTML = `
+            <b>City:</b> ${item.address.city || 'N/A'}<br>
+            <b>Country:</b> ${item.address.countryName || 'N/A'}<br>
+            <b>Postal Code:</b> ${item.address.postalCode || 'N/A'}<br>
+            <b>State:</b> ${item.address.state || 'N/A'}<br>
+            <b>Formatted Address:</b> ${item.address.label || 'N/A'}<br>
+            <b>Latitude:</b> ${location.lat}<br>
+            <b>Longitude:</b> ${location.lon}
+          `;
+        } else {
+          console.log('No lat/lon found for this address');
+          requestsDiv.innerHTML = `
+            <b>City:</b> ${item.address.city || 'N/A'}<br>
+            <b>Country:</b> ${item.address.countryName || 'N/A'}<br>
+            <b>Postal Code:</b> ${item.address.postalCode || 'N/A'}<br>
+            <b>State:</b> ${item.address.state || 'N/A'}<br>
+            <b>Formatted Address:</b> ${item.address.label || 'N/A'}<br>
+            <b>Latitude:</b> Not available<br>
+            <b>Longitude:</b> Not available
+          `;
+        }
+      } catch (error) {
+        console.error('Error fetching lat/lon:', error);
+        requestsDiv.innerHTML = `
+          <b>City:</b> ${item.address.city || 'N/A'}<br>
+          <b>Country:</b> ${item.address.countryName || 'N/A'}<br>
+          <b>Postal Code:</b> ${item.address.postalCode || 'N/A'}<br>
+          <b>State:</b> ${item.address.state || 'N/A'}<br>
+          <b>Formatted Address:</b> ${item.address.label || 'N/A'}<br>
+          <b>Latitude:</b> Error fetching<br>
+          <b>Longitude:</b> Error fetching
+        `;
+      }
+
+      resultsContainer.innerHTML = ''; // Clear the autocomplete suggestions
+    });
+
+    resultsContainer.appendChild(li); // Append each list item to results
   });
 }
 
