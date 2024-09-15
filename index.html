@@ -161,6 +161,48 @@ param.website = "dreamstudio"
 input:focus{
   outline: none;
 }
+
+.swiper-section {
+  height: 500px;
+  width: 100%;
+}
+
+@media screen and (max-width: 464px) {
+  .heroTopText {
+    font-size: 32px;
+  }
+
+
+  .heroTop .btn {
+    width: 90%;
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+
+
+  .backgroundImg {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .swiper-section {
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 368px) {
+  #autocomplete-input {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .swiper-section {
+    height: 400px;
+  }  
+}
+
 </style>
 
 <script>
@@ -188,7 +230,7 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
     </div>
   </div>
 
-  <img src="img/AnEnvironmentalImage.jpg" style="width:100%">
+  <img src="img/AnEnvironmentalImage.jpg" class="backgroundImg" alt="background img" style="width:100%">
 </div>
 
 <div id="heroHeader" style="display:none">
@@ -216,6 +258,8 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
   </div>
 
 </div>
+
+<object type="text/html" class="swiper-section" data="https://model.earth/swiper/index.html" style="overflow: none; margin-bottom:0;"></object>
 
 <div class="content contentpadding large-list" >
   <div id="readmeDiv"></div>
