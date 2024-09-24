@@ -1,41 +1,72 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>Pull fron GitHub</title>
-<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-<meta name="robots" content="noindex, nofollow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Pull from GitHub</title>
+    <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" id="/localsite/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<link type="text/css" rel="stylesheet" href="/localsite/css/base.css" id="/localsite/css/base.css" />
-<script type="text/javascript" src="/localsite/js/localsite.js?showheader=true&showsearchXX=true"></script>
-<script type="text/javascript" src="../js/repo.js"></script>
+    <link type="text/css" rel="stylesheet" href="/localsite/css/base.css" />
+    <script type="text/javascript" src="/localsite/js/localsite.js?showheader=true&showsearchXX=true"></script>
+    <script type="text/javascript" src="../js/test.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<style>
-img {
-    height: 100%;
-    max-height: 150px;
-    float: left;
-    margin: 0 10px 10px 0;
-}
-</style>
+
+    <style>
+        img {
+            height: 100%;
+            max-height: 150px;
+            float: left;
+            margin: 0 10px 10px 0;
+        }
+        .gallery {
+            margin: 2% 0;
+            padding: 1%;
+        }
+        #content {
+            padding: 2%;
+        }
+        #mp3-select, #audio-player, #file-type-select {
+            padding:2% 2% 2% 2%;
+            position:relative;
+            width: 100%;
+            /* text-align: center; */
+        }
+        #mp3, #file, #audio-player{
+            margin-top: 1%;
+        }
+
+
+
+    </style>
 </head>
-
 <body>
 
-<div class="content contentpadding">
-	<div id="readmeDiv"></div>
-
-	<!-- Thumbnails dynamically inserted here -->
-	<div class="gallery"></div>
+<div style="display:none" class="local">
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col" id="file">
+                <select class="form-select" id="file-type-select"></select>
+            </div>
+            <div class="col" id="mp3">
+                <select class="form-select" id="mp3-select"></select>
+            </div>
+            <div class="col">
+                <audio id="audio-player" controls class="w-100">Audio not supported.</audio>
+            </div>
+        </div>
+    </div>
 </div>
+    <!-- Gallery for images -->
 
-<script>
-  //loadMarkdown("README.md", "readmeDiv", "_parent");
-</script>
+    <div class="gallery" style="display:none;"></div>
+
+
+
 
 </body>
 </html>
