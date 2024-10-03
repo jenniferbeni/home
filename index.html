@@ -174,8 +174,16 @@ input:focus{
 }
 
 .swiper-section {
-  height: 500px;
+  height: 477px;
   width: 100%;
+  overflow: hidden;
+  margin-bottom:0;
+}
+
+@media screen and (max-width: 1089px) {
+  .swiper-section {
+    height: 467px;
+  }
 }
 
 @media screen and (max-width: 464px) {
@@ -272,7 +280,7 @@ loadMarkdown("README.md", "readmeDiv", "_parent");
 
 <div style="displayX:none">
 
-<object type="text/html" class="swiper-section" data="https://model.earth/swiper/dist/index.html" style="overflow: none; margin-bottom:0;"></object>
+<object type="text/html" class="swiper-section" data="https://model.earth/swiper/dist/index.html" scrolling="no"></object>
 
 </div>
 
@@ -342,6 +350,18 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
 });
+/*window.addEventListener('message', (event) => {
+  // Verify the origin
+  if (event.origin === 'https://raydendarkus.github.io') {
+    const { activeIndex, source } = event.data;
+    // Check if the message is from the swiper iframe
+    if (source === 'swiper' && activeIndex) {
+      window.location.hash = `#feed=nasa&scene=${activeIndex}`;
+    }
+  } else {
+    console.warn('Unexpected origin:', event.origin);
+  }
+}); */
 </script>
 </body>
 </html>
