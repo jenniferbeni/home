@@ -2,9 +2,11 @@
 
 We're creating a process that pulls files from any Github repo so anyone can quickly interact with any repo.  We'll provide a dropdown with our default repos, and a field for entering new repos.
 
-### 2. Why do we need to have the RAG system here
+### 2. How will the RAG system be used in the home repo?
 
-The home repo is being designed to explore progress toward UN Goals. It will allow anyone to customize within their own website to configuration for locations and topics. One of the parameters will be the external repo containing the training material to use within the home page.
+The home repo is being designed to explore progress toward UN Goals and environmental impact data visualization. Parameters will allow anyone to customize the content of the home page by setting locations and topics.
+
+One of the parameters will be the path to the GitHub repo containing the RAG training material to use within the home page.
 
 ### 3. How are users going to use the RAG model?
 
