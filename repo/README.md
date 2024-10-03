@@ -10,8 +10,8 @@ One of the parameters will be the path to the GitHub repo containing the RAG tra
 
 ### 3. How are users going to use the RAG model?
 
-We'll have default prompts. Each RAG model will also generate questions that relate to the unique data in the model - to provide the user with links about the data.
+Each RAG model will be used to generate starter prompts that relate to the unique data in the model. The starter prompts will be informative. Example: "This model focuses on topics related to water purification using three tecniques. Learn more."
 
 ### 4. How are users going to initiate the requests?
 
-A #prompt input field will allow the user to converse with the model. Clicking the default prompts will send them to the #prompt field as well.
+A #prompt input field will allow the user to converse with the model. Clicking the default starter prompts will send each pre-generated prompt into the #prompt field to pull more details from the model.
