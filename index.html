@@ -172,6 +172,19 @@ param.website = "dreamstudio"
 input:focus{
   outline: none;
 }
+@media screen and (max-width: 464px) {
+  .heroTopText {
+    font-size: 32px;
+  }
+  .heroTop .btn {
+    width: 90%;
+    font-size: 0.8rem;
+    margin-right: 10px;
+  }
+  .backgroundImg {
+    height: 250px;
+  }
+}
 
 .swiper-section {
   height: 477px;
@@ -186,33 +199,9 @@ input:focus{
   }
 }
 
-@media screen and (max-width: 464px) {
-  .heroTopText {
-    font-size: 32px;
-  }
-
-
-  .heroTop .btn {
-    width: 90%;
-    font-size: 0.8rem;
-    margin-right: 10px;
-  }
-
-
-  .backgroundImg {
-    height: 250px;
-  }
-}
-
 @media screen and (max-width: 376px) {
   .swiper-section {
     height: 450px;
-  }
-}
-
-@media screen and (max-width: 368px) {
-  #autocomplete-input {
-    width: 180px;
   }
 }
 
@@ -221,7 +210,6 @@ input:focus{
     height: 400px;
   }  
 }
-
 </style>
 
 <script>
