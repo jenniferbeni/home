@@ -49,11 +49,33 @@ $(document).ready(function() {
     }
 
     // Function to load image files and count
-    function loadImageFiles() {
+    function loadImageFiles(branch) {
+        let getProviderArray = ["github.com", "gitbucket.com"];
         let owner = 'modelearth'; // owner_username
         let repo = 'requests'; // repository_name
-        let branch = 'main'; // or whichever branch you want to access
+        if (!branch) {
+            branch = 'main'; // or whichever branch you want to access
+        }
+        // TO DO: Fetch available branches for repo
         let gitPath = `https://github.com/${owner}/${repo}`
+        if ($("#inputGit").val().length > 1) {
+            gitPath = $("#inputGit").val();
+            // Convert providers to lowercase for case-insensitive matching
+            let lowerCaseProviders = getProviderArray.map(provider => provider.toLowerCase());
+
+            // Extract the provider, owner, and repo from the URL
+            let regex = new RegExp(`(?:https?://)?(${lowerCaseProviders.join('|')})/([^/]+)/([^/]+)`, 'i');
+            let match = gitPath.match(regex);
+
+            if (match) {
+              owner = match[2];
+              repo = match[3];
+              console.log(`Owner: ${owner}`);
+              console.log(`Repo: ${repo}`);
+            } else {
+              console.log("No matching provider found in the URL.");
+            }
+        }
         $("#inputGit").val(gitPath);
         $.ajax({
             url: `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`,
@@ -81,6 +103,9 @@ $(document).ready(function() {
             },
             error: function(err) {
                 console.error('Error fetching image files:', err);
+                if (branch != "master") {
+                    loadImageFiles("master") // Older repos may use master rather than main.
+                }
             }
         });
     }
@@ -102,4 +127,15 @@ $(document).ready(function() {
             $('.gallery').show();        // Show the gallery
         }
     });
+    document.getElementById("inputGit-button").addEventListener("click", function() {
+        loadImageFiles();
+    });
+    // Add keypress event listener for the input field
+    document.getElementById("inputGit").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            loadImageFiles();
+        }
+    });
 });
+
+
