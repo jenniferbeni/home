@@ -28,34 +28,127 @@
             height: 800px;
         }
     </style>
+
+<style>
+.inputGit-container #inputGit-results li {
+  padding: 2px 16px !important;
+}
+.inputGit-container {
+    align-items: center;
+    position: relative;
+    backgroundX: var(--gm-3-ref-primary-primary-100);
+    background-color: #fff;
+    border-radius: 28px;
+    border: 1px solid #444;
+    display: flex;
+    flex-shrink: 0;
+    gap: 4px;
+    height: fit-content;
+    margin: 1px;
+    padding: 0px;
+    width: 100%;
+}
+.inputGit-container .inputGit-input {
+    align-items: center;
+    align-self: stretch;
+    background: transparent;
+    border: none;
+    color: var(--gm-3-ref-neutral-neutral-40);
+    display: flex;
+    flex: 1 0 0;
+    font-family: var(--font-family-sans-serif);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    gap: 10px;
+    height: 48px;
+    line-height: 24px;
+    padding: 0px 8px 0px 24px;
+    box-sizing: border-box; 
+}
+.inputGit-container #loading {
+    margin-left: 24px;
+    font-size: 14px;
+    color: #0f5b9e;
+}
+.inputGit-container #inputGit-results {
+    list-style-type: none;
+    padding: 0;
+    background-color: white;
+    /* border: 1px solid #ccc; /* Add a border to make the dropdown visually distinct */
+    
+    border-radius: 0 0 4px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%; /* Align the dropdown directly below the input field */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better visibility */
+}
+
+.inputGit-container #inputGit-results li {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: white;
+    border-bottom: 1px solid #eee; /* Add a separator between items */
+}
+
+.inputGit-container #inputGit-results li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Button styling */
+.inputGit-container #inputGit-button {
+    cursor: pointer;
+    flex-shrink: 0;
+    height: 42px;
+    width: 42px;
+    background: url(../img/search-button-icon.svg) no-repeat center;
+    background-size: contain;
+}
+input:focus{
+  outline: none;
+}
+</style>
+
 </head>
 <body>
 
-<div style="displayX:none" class="localX">
-    <div class="content contentpadding">
+<div class="content contentpadding">
 
-        <div style="float:left">
-            <select class="form-select" id="file-type-select" style="max-width:140px;"></select>
-        </div>
-        <div id="mp3" style="overflow:auto">
-            <select class="form-select" id="mp3-select" style="width:100%"></select>
-        </div>
-        <div>
-            <audio id="audio-player" controls class="w-100">Audio not supported.</audio>
-        </div>
-        <div style="clear:both"></div>
-
-        <!-- Gallery for images -->
-        <div class="gallery" style="display:none;"></div>
-
-        <div style="clear:both; margin-top:30px; margin-bottom:30px">
-            <a href="https://github.com/ModelEarth/home/blob/main/js/repo.js">View javascript</a> for displaying content from Github repos.
-        </div>
-
-
-        <object type="text/html" class="feed-player" data="/feed/feed.html" scrolling="no"></object>
-
+    <div style="float:right">
+        <select class="form-select" id="file-type-select" style="max-width:140px;"></select>
     </div>
+    <h3>Play image content from...</h3>
+
+    <div class="inputGit-container" style="margin-bottom:10px">
+      <input type="text" id="inputGit" placeholder="Where do you want to go today?" class="inputGit-input" inputGit="off"/>
+      <div id="loading" style="display: none;">Loading...</div>
+      <div id="inputGit-button"></div>
+      <ul id="inputGit-results" class="inputGit-results"></ul>
+    </div>
+
+    
+    <div id="mp3" style="overflow:auto">
+        <select class="form-select" id="mp3-select" style="width:100%"></select>
+    </div>
+    <div>
+        <audio id="audio-player" controls class="w-100">Audio not supported.</audio>
+    </div>
+    <div style="clear:both"></div>
+
+    <div class="gallery"></div>
+
+    <div style="clear:both; margin-top:30px; margin-bottom:30px">
+        <a href="https://github.com/ModelEarth/home/blob/main/js/repo.js">View javascript</a> for displaying content pulled from Github repos.
+    </div>
+
+    <!--
+    <object type="text/html" class="feed-player" data="/feed/feed.html" scrolling="no"></object>
+    -->
+
 </div>
 
 

@@ -39,7 +39,7 @@ $(document).ready(function() {
                     });
                 } else {
                     // Hide music-related elements if no files are found
-                    $('#mp3-select, #audio-player').hide();
+                    //$('#mp3-select, #audio-player').hide();
                 }
             },
             error: function(err) {
@@ -53,7 +53,8 @@ $(document).ready(function() {
         let owner = 'modelearth'; // owner_username
         let repo = 'requests'; // repository_name
         let branch = 'main'; // or whichever branch you want to access
-
+        let gitPath = `https://github.com/${owner}/${repo}`
+        $("#inputGit").val(gitPath);
         $.ajax({
             url: `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`,
             method: 'GET',
@@ -61,10 +62,11 @@ $(document).ready(function() {
                 const imageFiles = data.tree.filter(file => /\.(jpg|jpeg|gif)$/i.test(file.path));
 
                 if (imageFiles.length > 0) {
-                    $('#file-type-select').append(`<option value="images">Images(${imageFiles.length})</option>`);
+                    $('#file-type-select').append(`<option value="images">Images (${imageFiles.length})</option>`);
 
                     // Clear the gallery and append new images
                     $('.gallery').empty();
+                    $('.gallery').show();
                     imageFiles.forEach(function(file) {
                         const imagePath = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${file.path}`;
                         const thumbnail = `<div class="thumbnail">
@@ -84,15 +86,16 @@ $(document).ready(function() {
     }
 
     // Automatically load music and image files, and count
-    loadMusicFiles();  // Music files will be pulled and displayed on page load
-    loadImageFiles();  // Image files will be pulled and displayed on page load
+    loadImageFiles();  // Image files pulled and displayed on page load
+    loadMusicFiles();  // Music files pulled and displayed on page load
+    
 
     // Dropdown listener to switch between music and image files
     $('#file-type-select').on('change', function() {
         const selectedType = $(this).val();
         
         if (selectedType === 'music') {
-            $('.gallery').hide();        // Hide the gallery
+            //$('.gallery').hide();        // Hide the gallery
             $('#mp3-select, #audio-player').show();   // Show the audio player and mp3 select
         } else if (selectedType === 'images') {
             $('#mp3-select, #audio-player').hide();   // Hide the audio player and mp3 select
