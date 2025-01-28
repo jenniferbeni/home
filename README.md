@@ -29,5 +29,5 @@ MemberSense (Team Guided AI)
 Upcoming: Integrate settings from GitHub accounts to set your goals. We'll storage resulting image, video and data visualization parameters within your storyboards. storyblok.com
 
 Our team is integrating the Discord API with 3 AI datascapes:
-Stable Artisan, OpenWebUI, Earthscape NextJS.
+Langchain JS, OpenWebUI, Earthscape NextJS.
 -->
