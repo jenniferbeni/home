@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let items = [];
   let zip = "";
+  let country = "";
   const requestsDiv = document.getElementById('requests');
 
   // Address auto-complete using hereapi.com
@@ -26,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
           state: item.address.state,
           stateCode: item.address.stateCode
         },
-        zip: item.address.postalCode || 'No ZIP Code'
+        zip: item.address.postalCode || 'No ZIP Code',
+        country: item.address.countryName || 'No Country Name'
       }));
       loading.style.display = 'none';
       renderResults();
@@ -50,6 +52,7 @@ function renderResults1() {
       input.value = item.title;
       globalAddress = item.address;
       zip = item.zip || "";  // added zip code
+      country = item.country || ""; // added country name
       
       console.log('Selected item', item);
 
@@ -103,6 +106,7 @@ function renderResults() {
       input.value = item.title;
       globalAddress = item.address;
       zip = item.zip || "";  // Capture the zip code
+      country = item.country || ""; // Capture country name
 
       console.log('Selected item', item);
 
@@ -168,7 +172,7 @@ function renderResults() {
   });
 
   document.getElementById("autocomplete-button").addEventListener("click", function() {
-    window.location.href = "/RealityStream/#zip=" + zip;
+    window.location.href = "/planet/repo/#country=" + country;
   });
 });
 
