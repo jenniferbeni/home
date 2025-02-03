@@ -376,11 +376,7 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
     </label>
 
   </div>
-
 </div>
-<script>
-//updateDcidSelectFromSheet("county"); // Resides after #chartVariable
-</script>
 
 
 <object type="text/html" class="swiper-section" data="/swiper/dist/index.html" scrolling="no"></object>
@@ -453,6 +449,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Has to wait for #relocatedScopeMenu
+// Later we'll run updateDcidSelectFromSheet before DOM load completes.
 
 // Copied from data-commons/docs/data/index.html, except for CUSTOM
 document.addEventListener('DOMContentLoaded', () => {
