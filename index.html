@@ -298,7 +298,7 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
 
     <div id="relocatedScopeMenu" style="float:left"></div>
 
-  <select id="entityId">
+  <select id="entityId" style="display:none">
       <option value="geoId/01">Alabama</option>
       <option value="geoId/02">Alaska</option>
       <option value="geoId/04">Arizona</option>
@@ -456,23 +456,26 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', () => {
     let hash = getHash();
     if (!hash.scope) {
+      hash.scope = "country" // Hack until we wait for scope
+    }
+    if (!hash.scope) {
 
         //let selectScopeSelect = document.getElementById('selectScope');
-
-        //hash.scope = document.getElementById('selectScope').options[document.getElementById('selectScope').selectedIndex].text;
-
-        // CUSTOM FIX IN home repo
-        hash.scope = "county"
-
+        hash.scope = document.getElementById('selectScope').options[document.getElementById('selectScope').selectedIndex].text;
         //alert(hash.scope)
+    }
+    if (!hash.scope) {
+      // CUSTOM FIX IN home repo
+      hash.scope = "country"
     }
     updateDcidSelectFromSheet(hash.scope);
     
     document.addEventListener('change', function(event) {
-        if (event.target.name === 'countyShow') {
+      //alert("change " + event.target.name)
+        //if (event.target.name === 'countyShow') {
           //alert('Radio button changed! ' + event.target.value);
           refreshTimeline();
-        }
+        //}
     });
 
     document.getElementById('chartVariable').addEventListener('change', (event) => {
