@@ -368,6 +368,9 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
         <canvas id="lineAreaChart"></canvas>
     </div>
 
+    <div style="float:right; margin-left:20px; min-width:350px;">
+      Collaborate on our <a href="https://model.earth/data-commons/docs/data">UN Goal Timeline Development</a>
+    </div>
     <label>
             <input type="radio" name="toogleChartType" value="div1"> Line Chart
         </label>
@@ -380,7 +383,13 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
 
   </div>
 </div>
-
+<script>
+    // Add event listener to radio buttons to call toggleDivs() on change
+    // Has to reside after toogleChartType html above.
+    document.querySelectorAll('input[name="toogleChartType"]').forEach((radio) => {
+        radio.addEventListener('change', toggleDivs);
+    });
+</script>
 
 <object type="text/html" class="swiper-section" data="/swiper/dist/index.html" scrolling="no"></object>
 
