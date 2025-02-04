@@ -21,7 +21,8 @@ param.website = "dreamstudio"
 <!-- For GDC timelines -->
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../data-commons/docs/data/js/earthscape.js" type="text/javascript"></script>
+<!-- ../data-commons/docs/data/js/earthscape.js -->
+<script src="../localsite/js/earthscape.js" type="text/javascript"></script>
 
 <style>
 #heroHeader {
@@ -254,21 +255,23 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
   <img src="img/AnEnvironmentalImage.jpg" class="backgroundImg" alt="background img" style="width:100%">
 </div>
 
-<div id="heroHeader" style="display:none">
+<div id="heroHeader">
 
   <div class="content contentpadding large-list search-section">
 
-    <h3>Our data science team turns dreams&nbsp;into&nbsp;reality.</h3>
+    <div id="heroSearch" style="display:none">
+      <h3>Our data science team turns dreams&nbsp;into&nbsp;reality.</h3>
 
-    <div class="autocomplete-container">
-      <input type="text" id="autocomplete-input" placeholder="Where do you want to go today?" class="autocomplete-input" autocomplete="off"/>
-      <div id="loading" style="display: none;">Loading...</div>
-      <div id="autocomplete-button"></div>
-      <ul id="autocomplete-results" class="autocomplete-results"></ul>
+      <div class="autocomplete-container">
+        <input type="text" id="autocomplete-input" placeholder="Where do you want to go today?" class="autocomplete-input" autocomplete="off"/>
+        <div id="loading" style="display: none;">Loading...</div>
+        <div id="autocomplete-button"></div>
+        <ul id="autocomplete-results" class="autocomplete-results"></ul>
+      </div>
+
+      <br>
+      <div id="requests" style="margin-bottom:15px"></div>
     </div>
-
-    <br>
-    <div id="requests" style="margin-bottom:15px"></div>
 
     <!--
     <b>Everything is possible, it's just a question of how possible.</b><br>
@@ -366,13 +369,13 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
     </div>
 
     <label>
-            <input type="radio" name="toogleChartType" value="div1" checked> Line Chart
+            <input type="radio" name="toogleChartType" value="div1"> Line Chart
         </label>
         <label>
             <input type="radio" name="toogleChartType" value="div2"> Area Chart
         </label>
         <label>
-            <input type="radio" name="toogleChartType" value="both"> Both
+            <input type="radio" name="toogleChartType" value="both" checked> Both
     </label>
 
   </div>
@@ -437,9 +440,7 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     if (window.location.hostname !== 'dreamstudio.com') {
-        document.getElementById('heroHeader').style.display = 'block';
-    } else {
-      
+        //document.getElementById('heroSearch').style.display = 'block';
     }
     if (location.host.indexOf('localhost') >= 0 && window.location.hostname !== 'dreamstudio.com') {
       waitForElm('.goalsSub').then((elm) => {
