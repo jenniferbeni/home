@@ -192,7 +192,13 @@ input:focus{
     height: 250px;
   }
 }
-
+#toptextinfo {
+  display: flex;
+}
+#toptextinfo div {
+  float: left;
+  padding: 40px;
+}
 .swiper-section {
   height: 477px;
   width: 100%;
@@ -262,6 +268,24 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
   <img src="img/AnEnvironmentalImage.jpg" class="backgroundImg" alt="background img" style="width:100%">
 </div>
 
+
+<div id="toptextinfo">
+  <div style="font-size:23px; " class="half-div div2">
+  DreamStudio provides a framework for computer science grads to gain experience developing integrated apps with realworld problem solving implementations.
+  </div>
+
+  <div style="font-size:20px; font-weight: normal; justify-content: left;" class="half-div div1">
+  <b>Our Development Areas</b><br>
+  RealityStream (ML Visualization)<br>
+  ModelEarth (Location Analysis)<br>
+  OpenFootprint (Open Data Panels)<br>
+  MemberSense (Team Perspectives)<br>
+
+  </div>
+</div>
+<br style="clear:both"><br>
+
+
 <div id="heroHeader" class="hideMobile">
 
   <div class="content contentpadding large-list search-section">
@@ -292,6 +316,7 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
     }
     .toggleDiv:hover {
       background-color: #e3e3e3;
+      background-color: #eee;
     }
     </style>
 
@@ -411,17 +436,21 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
 .half-div-parent {
     margin: 0;
     display: flex;
+    
 }
 .half-div {
     width: 50%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    font-weight: bold;
+    min-height: 200px;
+    flex: 1;
     color: white;
     position: relative;
+    justify-content: left;
+}
+.half-div-lower {
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
 }
 @media (max-width: 800px) {
   .half-div-parent {
@@ -447,14 +476,22 @@ Add a swoop like: https://contra.com/p/cRk36Noe-humify-website-design
     background-color: rgb(166, 195, 110); /* Green */
 }
 </style>
+
+<!--
 <div class="half-div-parent">
-    <div class="half-div div1">
+    <div class="half-div  div1">
+      <div lass="half-div-lower">
       <a href="https://model.earth" target="_blank"></a>
-      Model.Earth</div>
-    <div class="half-div div2">
+      Model.Earth
+      </div>
+    </div>
+    <div class="half-div half-div-lower div2">
+      <div lass="half-div-lower">
       <a href="https://github.com/open-webui" target="_blank"></a>
       Open Web UI Ollama</div>
+      </div>
 </div>
+-->
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
