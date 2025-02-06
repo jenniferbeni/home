@@ -515,6 +515,13 @@ document.addEventListener("DOMContentLoaded", function() {
 // Later we'll run updateDcidSelectFromSheet before DOM load completes.
 
 // Copied from data-commons/docs/data/index.html, except for CUSTOM
+document.addEventListener('hashChangeEvent', function (elem) {
+    console.log("Home page detects URL hashChangeEvent");
+    let hash = getHash();
+    if (hash.scope != priorHash.scope) {
+        updateDcidSelectFromSheet(hash.scope);
+    }
+}, false);
 document.addEventListener('DOMContentLoaded', () => {
     let hash = getHash();
     if (!hash.scope) {
@@ -531,14 +538,6 @@ document.addEventListener('DOMContentLoaded', () => {
       hash.scope = "country"
     }
     updateDcidSelectFromSheet(hash.scope);
-    
-    document.addEventListener('change', function(event) {
-      //alert("change " + event.target.name)
-        //if (event.target.name === 'countyShow') {
-          //alert('Radio button changed! ' + event.target.value);
-          refreshTimeline();
-        //}
-    });
 
     document.getElementById('chartVariable').addEventListener('change', (event) => {
 
