@@ -1,6 +1,7 @@
 # Home Setup
 
 Obsidian is cool. (We're NOT currently using it in the home repo.)
+Syncs your Markdown notes from your local Obsidian to GitHub as a backup.
 
 ## Connect Obsidian with your Github repo
 [The Easiest Way to Connect Your Obsidian Vault](https://linked-blog-starter.vercel.app/connect-obsidian-vault-with-github) with guilded steps. 
