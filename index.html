@@ -198,6 +198,7 @@ input:focus{
 #toptextinfo div {
   float: left;
   padding: 40px;
+  padding-left: 64px;
 }
 .swiper-section {
   height: 477px;
@@ -557,6 +558,13 @@ document.addEventListener('DOMContentLoaded', () => {
       hash.scope = "country"
     }
     updateDcidSelectFromSheet(hash.scope);
+
+    document.addEventListener('change', function(event) {
+        if (event.target.name === 'countyShow') {
+          //alert('Radio button changed! ' + event.target.value);
+          refreshTimeline();
+        }
+    });
 
     document.getElementById('chartVariable').addEventListener('change', (event) => {
 
